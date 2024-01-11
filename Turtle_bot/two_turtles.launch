@@ -1,0 +1,13 @@
+<!--Launching turtlesim_node with two turtles -->
+<launch>
+  <node name="turtlesim" pkg="turtlesim" type="turtlesim_node" respawn="true" output="screen" />
+
+  <!-- Spawn turtle2 -->
+  <node name="spawn_turtle2" pkg="rosservice" type="rosservice" args='call /spawn "{x: 3.0, y: 3.0, theta: 0.0, name: turtle2}"'/>
+ 
+ <!-- Launch the turtle_teleop_key node to control turtle1 -->
+  <node name="teleop_turtle1" pkg="turtlesim" type="turtle_teleop_key" output="screen">
+    <!-- <remap from="turtle1/cmd_vel" to="turtle1/cmd_vel" /> -->
+  </node>
+</launch>
+
